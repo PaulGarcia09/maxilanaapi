@@ -1,0 +1,17 @@
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^((?s).*)$ index.php?_url=/$1 [QSA,L]
+    php_value post_max_size 200M
+    php_value upload_max_filesize 200M
+    php_value memory_limit 300M
+    php_value max_execution_time 259200
+    php_value max_input_time 259200
+    php_value session.gc_maxlifetime 1200
+</IfModule>
+
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp|json|phar|wsdl|gitignore)|~)$">
+    RedirectMatch 404 $
+</FilesMatch>

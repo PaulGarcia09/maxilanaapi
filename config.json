@@ -1,0 +1,8 @@
+{
+    "conexionPrincipal": {
+        "dbname": "ConsultasWEB",
+        "host": "10.0.0.232",
+        "username": "sa",
+        "password": "napire960702"
+    }
+}
